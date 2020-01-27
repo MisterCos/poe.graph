@@ -7,19 +7,26 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // Prime Ng module
 import { PrimengModule } from './shared/modules/primeng/primeng.module';
 import { NavbarComponent } from './components/commons/navbar/navbar.component';
+import { WellcomeComponent } from './components/commons/wellcome/wellcome.component';
+
 // End prime ng
+import { HttpClientModule } from '@angular/common/http';
+import { TradeComponent } from './components/trade/trade.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    WellcomeComponent,
+    TradeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PrimengModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
