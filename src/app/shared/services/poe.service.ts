@@ -23,6 +23,12 @@ export class PoeService {
     return this.http.get(ruta);
   }
 
+  getItemFilterByCategory(leage,category){
+
+    var url = "https://api.poe.watch/get?league="+leage+"&category="+category
+    return this.http.get(url);
+  }
+
 
 
 }

@@ -1,42 +1,39 @@
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>Listado de items para comerciar</h3>
-        </div>
+<div class="col-12 text-center">
+    <h3>Listado de items para comerciar</h3>
+    <h4>Por favor elija la liga y la categoria</h4>
+</div>
+<div class="row mt-4">
+    <div class="col-3">
+
+        <p-dropdown [options]="leagues" [(ngModel)]="selectedLeague" ></p-dropdown>
+
     </div>
-    <div class="row">
-        <div class="col-12">
-            <span>Introduce el objeto que quieres buscar</span>
-            <div class="ui-inputgroup">
-                <button pButton type="button" label="Search"></button>
-                <input type="text" pInputText placeholder="Keyword" (keyUp)="searchItem()">
-            </div>
-        </div>
+    <div class="col-3">
+        <p-dropdown [options]="categories" [(ngModel)]="selectedCategory"></p-dropdown>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div *ngFor="let array of listItems">
-                <div *ngFor="let stash of array">
-                    {{item | json}}
-                    <div *ngFor="let item of stash.items" >
-                        <div class="row">
-
-                        
-                        <div *ngFor="let a of item">
-                            <div class="col3" *ngIf="a.extended.category ==='weapons' ">
-                                    <p-card header="{{a.name}}" subheader="{{a.note}}" [style]="{width: '360px'}"
-                                    styleClass="ui-card-shadow">
-                                    <p-header>
-                                        <img src="Card" src="{{a.icon}}" style="width: 80px;height: 80px;">
-                                    </p-header>
-                                </p-card>
-                            </div>
-                        </div></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+    <div class="col-3">
+        <button pButton type="button" label="Buscar" (click)="test()"></button>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+            <p-table [value]="listItems">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Precio</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td><img src="{{item.icon}}" alt="" style="max-height: 30px;max-width: 30px;"></td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.type}}</td>
+                            <td>{{item.mean | currency: 'USD':true:'2.0'}} chaos</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
     </div>
 </div>

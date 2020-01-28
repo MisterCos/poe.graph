@@ -8,7 +8,8 @@ import {DataViewModule} from 'primeng/dataview';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CardModule} from 'primeng/card';
-
+import {DropdownModule} from 'primeng/dropdown';
+import {TableModule} from 'primeng/table';
 
 
 const primeModules = [
@@ -20,7 +21,9 @@ const primeModules = [
   DataViewModule,
   InputTextModule,
   ButtonModule,
-  CardModule
+  CardModule,
+  DropdownModule,
+  TableModule
 ]
 
 @NgModule({
